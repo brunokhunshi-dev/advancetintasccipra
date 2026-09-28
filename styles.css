@@ -1,4 +1,9 @@
-/* PALETA DE CORES E VARIÁVEIS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =========================================================
+   PALETA DE CORES E VARIÁVEIS
+   ========================================================= */
+
 :root {
     --white: #FFFFFF;
     --light-bg: #F9F9FA;
@@ -7,12 +12,22 @@
     --red: #F51E30;
 }
 
-/* RESET E CONFIGURAÇÕES BÁSICAS */
+
+/* =========================================================
+   RESET E CONFIGURAÇÕES BÁSICAS
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Outfit', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
@@ -23,45 +38,56 @@ body {
     overflow: hidden;
 }
 
-/* CONTAINER MOBILE COM SNAP SCROLL */
+
+/* =========================================================
+   CONTAINER MOBILE COM SNAP SCROLL
+   ========================================================= */
+
 .mobile-app-container {
     width: 100%;
     max-width: 430px;
     height: 100svh;
+
     background-color: var(--light-bg);
+
     overflow-y: auto;
+
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    scrollbar-width: none;
-    overscroll-behavior-y: contain;
-}
 
-.screen {
-    width: 100%;
-    height: 100svh;
-    min-height: 100svh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    scrollbar-width: none;
+
+    overscroll-behavior-y: contain;
 }
 
 .mobile-app-container::-webkit-scrollbar {
     display: none;
 }
 
-/* ESTRUTURA GERAL DAS TELAS */
+
+/* =========================================================
+   ESTRUTURA GERAL DAS TELAS
+   ========================================================= */
+
 .screen {
     width: 100%;
-    height: 100vh;
+    height: 100svh;
+    min-height: 100svh;
+
     scroll-snap-align: start;
+    scroll-snap-stop: always;
+
     position: relative;
+
     display: flex;
     flex-direction: column;
 }
 
-/* UTILITÁRIOS */
+
+/* =========================================================
+   UTILITÁRIOS
+   ========================================================= */
+
 .red-text {
     color: var(--red);
 }
@@ -85,11 +111,13 @@ body {
     content: '';
     position: absolute;
     inset: 0;
+
     background: linear-gradient(
         180deg,
         rgba(4, 4, 56, 0.1) 0%,
         rgba(4, 4, 56, 0.95) 100%
     );
+
     z-index: 1;
 }
 
@@ -100,28 +128,36 @@ body {
 
 .hero-screen {
     position: relative;
+
     background-image:
         linear-gradient(
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)
         ),
         url('./home.png');
+
     background-size: cover;
     background-position: center;
+
     padding: 32px 24px;
+
     color: var(--white);
+
     justify-content: space-between;
 }
 
-/* Remove qualquer overlay adicional do .bg-placeholder */
 .hero-screen::after {
     display: none;
 }
 
+
 /* Logo */
+
 .hero-top {
     position: relative;
+
     z-index: 2;
+
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -129,48 +165,63 @@ body {
 
 .hero-top img {
     display: block;
+
     width: auto;
     max-width: 100%;
     height: auto;
 }
 
-/* Área central da hero */
+
+/* Área central */
+
 .hero-bottom {
     position: absolute;
-    inset: 32px 24px;
+
+    top: 32px;
+    left: 24px;
+    right: 24px;
+    bottom: 32px;
+
     z-index: 2;
 
     display: flex;
-    flex-direction: column;
-
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     text-align: center;
 }
 
+
 /* Headline */
+
 .hero-bottom h1 {
     max-width: 100%;
 
-    font-size: 38pt;
+    font-size: 48pt;
     line-height: 110%;
     font-weight: 500;
-    letter-spacing: -5%;
+
+    letter-spacing: -0.05em;
 }
 
+
 /* Indicador inferior */
+
 .scroll-indicator {
     position: absolute;
-    bottom: 0;
+
     left: 0;
     right: 0;
+    bottom: 0;
 
-    font-size: 10pt;
+    font-size: 12pt;
     line-height: 1;
+
     font-weight: 700;
+
     text-align: center;
-    letter-spacing: -5%;
+
+    letter-spacing: -0.05em;
 
     animation: scrollPulse 1.6s ease-in-out infinite;
 }
@@ -200,29 +251,47 @@ body {
     justify-content: space-between;
 }
 
+
+/* Título Advance Tintas */
+
 .about-content h2 {
-    font-size: 3.5rem;
-    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 52pt;
+    line-height: 110%;
+
     font-weight: 700;
+
+    letter-spacing: -0.05em;
+
+    color: rgba(255, 255, 255, 0.2);
+
     margin-bottom: 1.5rem;
-    opacity: 0.4;
 }
 
 .about-content p {
     font-size: 1.1rem;
     line-height: 1.4;
+
     margin-bottom: 1rem;
+
     font-weight: 300;
 }
 
+
+/* Ícones */
+
 .icon-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr 1fr;
+
     gap: 0.5rem;
 }
 
 .icon-card {
     background-color: var(--white);
+
     border-radius: 12px;
 
     padding: 1rem 0.5rem;
@@ -241,6 +310,7 @@ body {
     height: 40px;
 
     border: 1.5px solid var(--red);
+
     border-radius: 8px;
 
     margin-bottom: 0.5rem;
@@ -248,13 +318,14 @@ body {
 
 .icon-card span {
     color: var(--red);
+
     font-size: 0.65rem;
     font-weight: 500;
 }
 
 
 /* =========================================================
-   TELA 3 — SOLUÇÕES INDEX
+   TELA 3 — SOLUÇÕES / ANTICORROSÃO
    ========================================================= */
 
 .index-screen {
@@ -264,19 +335,36 @@ body {
     padding: 32px 24px;
 }
 
+
+/* Título */
+
 .index-header h2 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 52pt;
+    line-height: 110%;
+
+    font-weight: 700;
+
+    letter-spacing: -0.05em;
+
+    color: rgba(4, 4, 56, 0.2);
+
     margin-bottom: 1rem;
 }
 
 .index-header p {
     font-size: 1rem;
+
     font-weight: 400;
+
     line-height: 1.4;
+
     margin-bottom: 3rem;
 }
+
+
+/* Lista */
 
 .index-list {
     display: flex;
@@ -287,18 +375,21 @@ body {
     display: flex;
     align-items: center;
 
-    padding: 1.2rem 0;
+    padding: 0;
 
-    border-bottom: 1px solid rgba(15, 41, 96, 0.2);
-}
-
-.list-item.border-none {
     border-bottom: none;
 }
 
+
+/* Número */
+
 .list-num {
+    flex-shrink: 0;
+
     font-size: 3.5rem;
+
     font-weight: 300;
+
     color: rgba(15, 41, 96, 0.3);
 
     margin-right: 1.5rem;
@@ -306,10 +397,28 @@ body {
     line-height: 1;
 }
 
+
+/* Texto + linha vermelha */
+
 .list-text {
+    flex: 1;
+
     font-size: 1.2rem;
+
     font-weight: 400;
+
     line-height: 1.2;
+
+    padding: 1.2rem 0;
+
+    border-bottom: 0.4px solid var(--red);
+}
+
+
+/* Último item sem linha */
+
+.list-item.border-none .list-text {
+    border-bottom: none;
 }
 
 
@@ -323,46 +432,105 @@ body {
     padding: 32px 24px;
 
     justify-content: center;
+
+    background-size: cover;
+    background-position: center;
 }
 
+
+/* =========================================================
+   IMAGENS DE FUNDO
+   ========================================================= */
+
+.solution-screen:nth-of-type(1) {
+    background-image: url('./fotos/1.png');
+}
+
+.solution-screen:nth-of-type(2) {
+    background-image: url('./fotos/2.png');
+}
+
+.solution-screen:nth-of-type(3) {
+    background-image: url('./fotos/3.png');
+}
+
+.solution-screen:nth-of-type(4) {
+    background-image: url('./fotos/4.png');
+}
+
+.solution-screen:nth-of-type(5) {
+    background-image: url('./fotos/5.png');
+}
+
+
+/* Mantém o overlay das telas de solução */
+
+.solution-screen::after {
+    z-index: 1;
+}
+
+
+/* =========================================================
+   NÚMERO DA TELA
+   ========================================================= */
+
 .bg-number {
-    position: absolute;
+    position: relative;
 
-    top: 5%;
-    left: 5%;
+    top: auto;
+    left: auto;
 
-    font-size: 12rem;
-    font-weight: 800;
+    align-self: flex-start;
+
+    font-size: 82pt;
+    line-height: 0.9;
+
+    font-weight: 900;
 
     color: rgba(255, 255, 255, 0.15);
 
-    z-index: 2;
+    margin-bottom: 1rem;
 
-    line-height: 1;
+    z-index: 2;
 }
+
+
+/* =========================================================
+   CONTEÚDO DAS SOLUÇÕES
+   ========================================================= */
 
 .solution-content,
 .solution-footer {
     position: relative;
+
     z-index: 3;
 }
 
 .solution-content h2 {
     font-size: 2.2rem;
+
     line-height: 1.1;
 
     margin-bottom: 0.5rem;
-    margin-top: 4rem;
+    margin-top: 0;
 }
 
 .solution-content .subtitle {
     font-size: 1rem;
+
     margin-bottom: 1.5rem;
+
     font-weight: 500;
 }
 
+
+/* =========================================================
+   CÁPSULAS
+   ========================================================= */
+
 .tags {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 0.5rem;
@@ -371,14 +539,27 @@ body {
 }
 
 .tag {
-    border: 1px solid var(--white);
+    background-color: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.40);
+
     border-radius: 20px;
 
     padding: 0.3rem 0.8rem;
 
-    font-size: 0.65rem;
+    font-family: 'Outfit', sans-serif;
+
+    font-size: 8pt;
+
     font-weight: 500;
+
+    line-height: 1;
 }
+
+
+/* =========================================================
+   DESCRIÇÃO / PRODUTOS
+   ========================================================= */
 
 .solution-footer {
     margin-top: auto;
@@ -386,7 +567,9 @@ body {
 
 .solution-footer .desc {
     font-size: 1rem;
+
     font-weight: 500;
+
     line-height: 1.4;
 
     margin-bottom: 1.5rem;
@@ -398,6 +581,7 @@ body {
 
 .products li {
     font-size: 0.75rem;
+
     font-weight: 400;
 
     margin-bottom: 0.5rem;
@@ -422,7 +606,9 @@ body {
 
 .contact-header h2 {
     font-size: 1.8rem;
+
     font-weight: 800;
+
     line-height: 1.1;
 
     margin-bottom: 1rem;
@@ -430,6 +616,7 @@ body {
 
 .contact-header p {
     font-size: 1.1rem;
+
     margin-bottom: 0.3rem;
 }
 
@@ -455,6 +642,7 @@ body {
     text-decoration: none;
 
     font-weight: 600;
+
     font-size: 1.1rem;
 
     transition: 0.2s ease;
@@ -462,6 +650,7 @@ body {
 
 .btn-red {
     background-color: var(--red);
+
     color: var(--white);
 }
 
@@ -469,6 +658,7 @@ body {
     border: 1.5px solid var(--red);
 
     color: var(--red);
+
     background-color: transparent;
 }
 
@@ -502,6 +692,7 @@ body {
     height: 30px;
 
     border: 2px solid #ccc;
+
     border-radius: 50%;
 
     margin-right: 1rem;
@@ -509,6 +700,7 @@ body {
 
 .contact-links span {
     font-weight: 500;
+
     font-size: 1rem;
 }
 
@@ -516,5 +708,6 @@ body {
     margin-left: auto;
 
     color: var(--red);
+
     font-weight: 700;
 }
