@@ -1,18 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-
-let hasScrolled = false;
-
-container.addEventListener('scroll', () => {
-    if (!hasScrolled && container.scrollTop > 5) {
-        hasScrolled = true;
-        scrollIndicator.classList.add('hidden');
-    }
-}, { passive: true });
     console.log('Catálogo Advance inicializado com sucesso.');
 
     const container = document.querySelector('.mobile-app-container');
     const screens = document.querySelectorAll('.screen');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+
+    /* =====================================================
+       INDICADOR "CONTINUE ROLANDO"
+       ===================================================== */
+
+    let hasScrolled = false;
+
+    const hideScrollIndicator = () => {
+        if (hasScrolled || !scrollIndicator) return;
+
+        hasScrolled = true;
+        scrollIndicator.classList.add('hidden');
+    };
+
+    /* Some assim que o container realmente começar a rolar */
+    container.addEventListener('scroll', () => {
+        if (container.scrollTop > 5) {
+            hideScrollIndicator();
+        }
+    }, { passive: true });
+
+    /* No celular, some assim que a pessoa começar o gesto */
+    container.addEventListener('touchmove', hideScrollIndicator, {
+        passive: true
+    });
+
+
+    /* =====================================================
+       OBSERVER DAS TELAS
+       ===================================================== */
 
     const observerOptions = {
         root: container,
