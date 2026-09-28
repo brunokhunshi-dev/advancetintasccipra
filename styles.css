@@ -29,10 +29,11 @@ body {
     max-width: 430px;
     height: 100svh;
     background-color: var(--light-bg);
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    overscroll-behavior-y: contain;
 }
 
 .screen {
