@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
+
 /* =========================================================
    PALETA DE CORES E VARIÁVEIS
    ========================================================= */
@@ -34,7 +35,7 @@ body {
     background-color: #222;
     display: flex;
     justify-content: center;
-    height: 100svh;
+    height: 100lvh;
     overflow: hidden;
 }
 
@@ -47,7 +48,7 @@ body {
     width: 100%;
     max-width: 430px;
 
-    height: 100svh;
+    height: 100lvh;
 
     background-color: var(--light-bg);
 
@@ -56,9 +57,9 @@ body {
 
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    scroll-snap-stop: always;
 
     scrollbar-width: none;
+
     overscroll-behavior-y: contain;
 }
 
@@ -66,13 +67,19 @@ body {
     display: none;
 }
 
+
+/* =========================================================
+   ESTRUTURA GERAL DAS TELAS
+   ========================================================= */
+
 .screen {
     width: 100%;
-    height: 100%;
-    min-height: 100%;
-    max-height: 100%;
 
-    flex: 0 0 100%;
+    height: 100lvh;
+    min-height: 100lvh;
+    max-height: 100lvh;
+
+    flex: 0 0 100lvh;
 
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -84,6 +91,7 @@ body {
 
     overflow: hidden;
 }
+
 
 /* =========================================================
    UTILITÁRIOS
@@ -101,6 +109,9 @@ body {
     margin-bottom: 0.5rem;
     display: block;
 }
+
+
+/* Overlay padrão das páginas com imagem */
 
 .bg-placeholder {
     background-color: var(--blue);
@@ -156,7 +167,6 @@ body {
 
 .hero-top {
     position: relative;
-
     z-index: 2;
 
     display: flex;
@@ -173,7 +183,7 @@ body {
 }
 
 
-/* Área central */
+/* Área central da hero */
 
 .hero-bottom {
     position: absolute;
@@ -186,8 +196,10 @@ body {
     z-index: 2;
 
     display: flex;
-    align-items: center;
+    flex-direction: column;
+
     justify-content: center;
+    align-items: center;
 
     text-align: center;
 }
@@ -200,13 +212,16 @@ body {
 
     font-size: 48pt;
     line-height: 110%;
+
     font-weight: 500;
 
     letter-spacing: -0.05em;
+
+    text-align: center;
 }
 
 
-/* Indicador inferior */
+/* Indicador */
 
 .scroll-indicator {
     position: absolute;
@@ -245,6 +260,7 @@ body {
 
 .about-screen {
     background-color: var(--blue-dark);
+
     color: var(--white);
 
     padding: 32px 24px;
@@ -272,6 +288,7 @@ body {
 
 .about-content p {
     font-size: 1.1rem;
+
     line-height: 1.4;
 
     margin-bottom: 1rem;
@@ -280,12 +297,12 @@ body {
 }
 
 
-/* Ícones */
+/* Grid de ícones */
 
 .icon-grid {
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 0.5rem;
 }
@@ -321,23 +338,25 @@ body {
     color: var(--red);
 
     font-size: 0.65rem;
+
     font-weight: 500;
 }
 
 
 /* =========================================================
-   TELA 3 — SOLUÇÕES / ANTICORROSÃO
+   TELA 3 — SOLUÇÕES INDEX
    ========================================================= */
 
 .index-screen {
     background-color: var(--light-bg);
+
     color: var(--blue-dark);
 
     padding: 32px 24px;
 }
 
 
-/* Título */
+/* Título Anticorrosão */
 
 .index-header h2 {
     font-family: 'Montserrat', sans-serif;
@@ -376,9 +395,7 @@ body {
     display: flex;
     align-items: center;
 
-    padding: 0;
-
-    border-bottom: none;
+    width: 100%;
 }
 
 
@@ -399,7 +416,7 @@ body {
 }
 
 
-/* Texto + linha vermelha */
+/* Texto */
 
 .list-text {
     flex: 1;
@@ -416,7 +433,7 @@ body {
 }
 
 
-/* Último item sem linha */
+/* Último item */
 
 .list-item.border-none .list-text {
     border-bottom: none;
@@ -424,7 +441,7 @@ body {
 
 
 /* =========================================================
-   TELAS 4 A 8 — SOLUÇÕES ESPECÍFICAS
+   TELAS 4 A 8 — SOLUÇÕES
    ========================================================= */
 
 .solution-screen {
@@ -436,6 +453,8 @@ body {
 
     background-size: cover;
     background-position: center;
+
+    position: relative;
 }
 
 
@@ -443,28 +462,35 @@ body {
    IMAGENS DE FUNDO
    ========================================================= */
 
-.solution-screen:nth-of-type(1) {
+/* Tela 4 — Solução 01 */
+.solution-screen:nth-of-type(4) {
     background-image: url('./fotos/1.png');
 }
 
-.solution-screen:nth-of-type(2) {
+/* Tela 5 — Solução 02 */
+.solution-screen:nth-of-type(5) {
     background-image: url('./fotos/2.png');
 }
 
-.solution-screen:nth-of-type(3) {
+/* Tela 6 — Solução 03 */
+.solution-screen:nth-of-type(6) {
     background-image: url('./fotos/3.png');
 }
 
-.solution-screen:nth-of-type(4) {
+/* Tela 7 — Solução 04 */
+.solution-screen:nth-of-type(7) {
     background-image: url('./fotos/4.png');
 }
 
-.solution-screen:nth-of-type(5) {
+/* Tela 8 — Solução 05 */
+.solution-screen:nth-of-type(8) {
     background-image: url('./fotos/5.png');
 }
 
 
-/* Mantém o overlay das telas de solução */
+/* =========================================================
+   OVERLAY DAS SOLUÇÕES
+   ========================================================= */
 
 .solution-screen::after {
     z-index: 1;
@@ -483,7 +509,10 @@ body {
 
     align-self: flex-start;
 
+    z-index: 2;
+
     font-size: 82pt;
+
     line-height: 0.9;
 
     font-weight: 900;
@@ -491,8 +520,6 @@ body {
     color: rgba(255, 255, 255, 0.15);
 
     margin-bottom: 1rem;
-
-    z-index: 2;
 }
 
 
@@ -500,8 +527,7 @@ body {
    CONTEÚDO DAS SOLUÇÕES
    ========================================================= */
 
-.solution-content,
-.solution-footer {
+.solution-content {
     position: relative;
 
     z-index: 3;
@@ -512,7 +538,10 @@ body {
 
     line-height: 1.1;
 
+    font-weight: 700;
+
     margin-bottom: 0.5rem;
+
     margin-top: 0;
 }
 
@@ -522,6 +551,8 @@ body {
     margin-bottom: 1.5rem;
 
     font-weight: 500;
+
+    line-height: 1.3;
 }
 
 
@@ -540,14 +571,6 @@ body {
 }
 
 .tag {
-    background-color: rgba(255, 255, 255, 0.10);
-
-    border: 1px solid rgba(255, 255, 255, 0.40);
-
-    border-radius: 20px;
-
-    padding: 0.3rem 0.8rem;
-
     font-family: 'Outfit', sans-serif;
 
     font-size: 8pt;
@@ -555,14 +578,28 @@ body {
     font-weight: 500;
 
     line-height: 1;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    background-color: rgba(255, 255, 255, 0.1);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 20px;
+
+    padding: 0.35rem 0.8rem;
 }
 
 
 /* =========================================================
-   DESCRIÇÃO / PRODUTOS
+   RODAPÉ DAS SOLUÇÕES
    ========================================================= */
 
 .solution-footer {
+    position: relative;
+
+    z-index: 3;
+
     margin-top: auto;
 }
 
@@ -597,6 +634,7 @@ body {
 
 .contact-screen {
     background-color: var(--light-bg);
+
     color: var(--blue-dark);
 
     padding: 32px 24px;
@@ -677,6 +715,7 @@ body {
 
 .contact-links li {
     display: flex;
+
     align-items: center;
 
     padding: 1rem 0;
