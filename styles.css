@@ -27,12 +27,21 @@ body {
 .mobile-app-container {
     width: 100%;
     max-width: 430px;
-    height: 100vh;
+    height: 100svh;
     background-color: var(--light-bg);
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none;
+}
+
+.screen {
+    width: 100%;
+    height: 100svh;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .mobile-app-container::-webkit-scrollbar {
