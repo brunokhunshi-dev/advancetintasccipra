@@ -207,7 +207,7 @@ body {
 .hero-bottom h1 {
     max-width: 100%;
 
-    font-size: 36pt;
+    font-size: 38pt !important;
     line-height: 110%;
 
     font-weight: 500;
