@@ -1,28 +1,82 @@
-// O layout funciona majoritariamente com CSS (Scroll Snap e Flexbox).
-// Este arquivo está pronto caso precise adicionar lógicas futuras, 
-// como observar qual sessão está ativa para atualizar menus ou animações.
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Catálogo Advance inicializado com sucesso.');
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Catálogo Advance inicializado com sucesso.");
+    const container = document.querySelector('.mobile-app-container');
+    const screens = [...document.querySelectorAll('.screen')];
 
-    // Exemplo de Observer para detectar em qual tela o usuário está (opcional para animações)
-    const screens = document.querySelectorAll('.screen');
-    
-    const observerOptions = {
-        root: document.querySelector('.mobile-app-container'),
-        threshold: 0.5 // Dispara quando 50% da tela está visível
+    let currentScreen = 0;
+    let startY = 0;
+    let isScrolling = false;
+
+    const goToScreen = (index) => {
+        if (index < 0 || index >= screens.length || isScrolling) return;
+
+        isScrolling = true;
+        currentScreen = index;
+
+        screens[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+        setTimeout(() => {
+            isScrolling = false;
+        }, 700);
     };
 
-    const screenObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Aqui você pode adicionar classes para disparar animações CSS
-                // entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
+    /* =========================
+       SWIPE NO CELULAR
+    ========================= */
 
-    screens.forEach(screen => {
-        screenObserver.observe(screen);
-    });
+    container.addEventListener(
+        'touchstart',
+        (event) => {
+            startY = event.touches[0].clientY;
+        },
+        { passive: true }
+    );
+
+    container.addEventListener(
+        'touchend',
+        (event) => {
+            const endY = event.changedTouches[0].clientY;
+            const distance = startY - endY;
+
+            // Ignora movimentos pequenos
+            if (Math.abs(distance) < 50) return;
+
+            if (distance > 0) {
+                // Swipe para cima
+                goToScreen(currentScreen + 1);
+            } else {
+                // Swipe para baixo
+                goToScreen(currentScreen - 1);
+            }
+        },
+        { passive: true }
+    );
+
+    /* =========================
+       ATUALIZA TELA ATUAL
+    ========================= */
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const index = screens.indexOf(entry.target);
+
+                    if (index !== -1 && !isScrolling) {
+                        currentScreen = index;
+                    }
+                }
+            });
+        },
+        {
+            root: container,
+            threshold: 0.6
+        }
+    );
+
+    screens.forEach((screen) => observer.observe(screen));
 });
