@@ -738,13 +738,13 @@ body {
     border-bottom: none;
 }
 
-.icon-round {
+.contact-links li img {
     width: 30px;
     height: 30px;
 
-    border: 2px solid #ccc;
+    object-fit: contain;
 
-    border-radius: 50%;
+    flex-shrink: 0;
 
     margin-right: 1rem;
 }
