@@ -19,7 +19,7 @@ body {
     background-color: #222;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 100svh;
     overflow: hidden;
 }
 
@@ -39,6 +39,7 @@ body {
 .screen {
     width: 100%;
     height: 100svh;
+    min-height: 100svh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
