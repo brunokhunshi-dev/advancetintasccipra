@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+
+let hasScrolled = false;
+
+container.addEventListener('scroll', () => {
+    if (!hasScrolled && container.scrollTop > 5) {
+        hasScrolled = true;
+        scrollIndicator.classList.add('hidden');
+    }
+}, { passive: true });
     console.log('Catálogo Advance inicializado com sucesso.');
 
     const container = document.querySelector('.mobile-app-container');
