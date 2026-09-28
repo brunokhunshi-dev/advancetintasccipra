@@ -5,49 +5,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const screens = document.querySelectorAll('.screen');
     const scrollIndicator = document.querySelector('.scroll-indicator');
 
-    /* =====================================================
-       INDICADOR "CONTINUE ROLANDO"
-       ===================================================== */
+    if (!container) {
+        console.error('Container principal não encontrado.');
+        return;
+    }
 
-    let hasScrolled = false;
+    /*
+     * CONTINUE ROLANDO PARA BAIXO
+     * Esconde no primeiro movimento/scroll.
+     */
+    if (scrollIndicator) {
+        let hasScrolled = false;
 
-    const hideScrollIndicator = () => {
-        if (hasScrolled || !scrollIndicator) return;
+        const hideScrollIndicator = () => {
+            if (hasScrolled) return;
 
-        hasScrolled = true;
-        scrollIndicator.classList.add('hidden');
-    };
+            hasScrolled = true;
+            scrollIndicator.classList.add('hidden');
+        };
 
-    /* Some assim que o container realmente começar a rolar */
-    container.addEventListener('scroll', () => {
-        if (container.scrollTop > 5) {
-            hideScrollIndicator();
-        }
-    }, { passive: true });
-
-    /* No celular, some assim que a pessoa começar o gesto */
-    container.addEventListener('touchmove', hideScrollIndicator, {
-        passive: true
-    });
-
-
-    /* =====================================================
-       OBSERVER DAS TELAS
-       ===================================================== */
-
-    const observerOptions = {
-        root: container,
-        threshold: 0.5
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Adicionar classe para animações de entrada, se necessário
-                // entry.target.classList.add('animate-in');
+        container.addEventListener('scroll', () => {
+            if (container.scrollTop > 5) {
+                hideScrollIndicator();
             }
-        });
-    }, observerOptions);
+        }, { passive: true });
 
-    screens.forEach(screen => observer.observe(screen));
+        container.addEventListener('touchmove', hideScrollIndicator, {
+            passive: true,
+            once: true
+        });
+
+        container.addEventListener('wheel', hideScrollIndicator, {
+            passive: true,
+            once: true
+        });
+    }
+
+    /*
+     * OBSERVER DAS TELAS
+     */
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Espaço reservado para futuras animações.
+                    }
+                });
+            },
+            {
+                root: container,
+                threshold: 0.5
+            }
+        );
+
+        screens.forEach((screen) => {
+            observer.observe(screen);
+        });
+    }
 });
