@@ -10,25 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    /* =====================================================
+       LOGO DO RODAPÉ
+       ===================================================== */
+
+    const footerLogo = document.querySelector('.footer-logo');
+
+    if (footerLogo) {
+        footerLogo.innerHTML = '<img src="./logo.svg" alt="Advance Tintas" style="display:block;width:98px;height:auto;">';
+    }
 
     /* =====================================================
        CONTINUE ROLANDO PARA BAIXO
        ===================================================== */
 
     if (scrollIndicator) {
-
         let hasScrolled = false;
 
         const hideScrollIndicator = () => {
             if (hasScrolled) return;
-
             hasScrolled = true;
-
             scrollIndicator.classList.add('hidden');
         };
 
-
-        // Esconde quando o scroll realmente começar
         container.addEventListener(
             'scroll',
             () => {
@@ -36,59 +40,40 @@ document.addEventListener('DOMContentLoaded', () => {
                     hideScrollIndicator();
                 }
             },
-            {
-                passive: true
-            }
+            { passive: true }
         );
 
-
-        // Esconde imediatamente no primeiro movimento do dedo
         container.addEventListener(
             'touchmove',
             hideScrollIndicator,
-            {
-                passive: true,
-                once: true
-            }
+            { passive: true, once: true }
         );
 
-
-        // Esconde ao usar scroll com mouse/trackpad
         container.addEventListener(
             'wheel',
             hideScrollIndicator,
-            {
-                passive: true,
-                once: true
-            }
+            { passive: true, once: true }
         );
     }
-
 
     /* =====================================================
        OBSERVER DAS TELAS
        ===================================================== */
 
     if ('IntersectionObserver' in window) {
-
         const observer = new IntersectionObserver(
             (entries) => {
-
                 entries.forEach((entry) => {
-
                     if (entry.isIntersecting) {
                         // Espaço reservado para futuras animações.
                     }
-
                 });
-
             },
             {
                 root: container,
                 threshold: 0.5
             }
         );
-
 
         screens.forEach((screen) => {
             observer.observe(screen);
