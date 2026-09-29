@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Advance Tintas</title>
 
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=7">
 
     <!-- Fonte Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,30 @@
 </head>
 
 <body>
+
+    <section class="desktop-gate" aria-labelledby="desktop-gate-title">
+        <div class="desktop-gate-card">
+            <img class="desktop-gate-logo" src="./logo.svg" alt="Advance Tintas">
+
+            <span class="desktop-gate-label">EXPERIÊNCIA MOBILE</span>
+
+            <h1 id="desktop-gate-title">
+                Este catálogo foi feito para celular.
+            </h1>
+
+            <p class="desktop-gate-copy">
+                Escaneie o QR Code com a câmera do seu celular para continuar com a experiência completa.
+            </p>
+
+            <div class="desktop-qr-shell">
+                <div id="desktop-qr" aria-label="QR Code para abrir este catálogo no celular"></div>
+            </div>
+
+            <p class="desktop-gate-hint">
+                Aponte a câmera do celular para o código
+            </p>
+        </div>
+    </section>
 
     <div class="mobile-app-container">
 
@@ -471,11 +495,19 @@
             <div class="contact-buttons">
 
                 <a href="https://wa.me/5519991019992" class="btn btn-red" target="_blank" rel="noopener noreferrer">
-                    Contatar a Sandra ↗
+                    <span>Contatar a Sandra</span>
+                    <svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 17L17 7"></path>
+                        <path d="M9 7H17V15"></path>
+                    </svg>
                 </a>
 
                 <a href="https://wa.me/5519991019992" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-                    Contatar a Advance ↗
+                    <span>Contatar a Advance</span>
+                    <svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 17L17 7"></path>
+                        <path d="M9 7H17V15"></path>
+                    </svg>
                 </a>
 
             </div>
@@ -494,7 +526,10 @@
                         <a class="contact-link-row" href="https://www.instagram.com/advancetintas/" target="_blank" rel="noopener noreferrer">
                             <img class="social-icon" src="./icons/instagram.svg" alt="Instagram">
                             <span>@advancetintas</span>
-                            <span class="arrow">↗</span>
+                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 17L17 7"></path>
+                        <path d="M9 7H17V15"></path>
+                    </svg></span>
                         </a>
                     </li>
 
@@ -502,7 +537,10 @@
                         <a class="contact-link-row" href="https://advancetintas.com.br/" target="_blank" rel="noopener noreferrer">
                             <img class="social-icon" src="./icons/globe.svg" alt="Site Advance Tintas">
                             <span>www.advancetintas.com.br</span>
-                            <span class="arrow">↗</span>
+                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 17L17 7"></path>
+                        <path d="M9 7H17V15"></path>
+                    </svg></span>
                         </a>
                     </li>
 
@@ -510,7 +548,10 @@
                         <a class="contact-link-row" href="https://api.whatsapp.com/send?phone=5519991019992" target="_blank" rel="noopener noreferrer">
                             <img class="social-icon" src="./icons/whatsapp.svg" alt="WhatsApp">
                             <span>+55 (19) 99101-9992</span>
-                            <span class="arrow">↗</span>
+                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 17L17 7"></path>
+                        <path d="M9 7H17V15"></path>
+                    </svg></span>
                         </a>
                     </li>
 
@@ -518,7 +559,10 @@
                         <a class="contact-link-row" href="https://www.linkedin.com/company/advance-tintas-e-vernizes-ltda-/" target="_blank" rel="noopener noreferrer">
                             <img class="social-icon" src="./icons/linkedin.svg" alt="LinkedIn">
                             <span>@advancetintas</span>
-                            <span class="arrow">↗</span>
+                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 17L17 7"></path>
+                        <path d="M9 7H17V15"></path>
+                    </svg></span>
                         </a>
                     </li>
 
@@ -530,7 +574,10 @@
 
     </div>
 
-    <script src="script.js?v=6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07y4NU66MrNrz9cIi9eS7bHkT1l9Ti0I3oFrAhHhPZZB4iYIy0h9JRmGLHBIkg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js?v=7"></script>
 
 </body>
 </html>
