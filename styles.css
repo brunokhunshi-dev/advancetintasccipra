@@ -783,28 +783,15 @@ body {
 }
 
 
-/* Ícones Font Awesome */
-
-.contact-links li i {
+/* ÍCONES SOCIAIS */
+.contact-links .social-icon {
     width: 30px;
-    min-width: 30px;
-
     height: 30px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
+    min-width: 30px;
+    display: block;
+    object-fit: contain;
     margin-right: 1rem;
-
-    font-size: 1.2rem;
-
-    line-height: 1;
-
     flex-shrink: 0;
-
-    color: var(--red);
 }
 
 .contact-links span {
