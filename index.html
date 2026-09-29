@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Advance Tintas</title>
 
-    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=6">
 
     <!-- Fonte Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,45 +157,45 @@
 
             <div class="index-list">
 
-                <div class="list-item">
+                <a class="list-item" href="#solucao-1">
                     <span class="list-num">1.</span>
                     <span class="list-text">
                         ALTO<br>
                         DESEMPENHO
                     </span>
-                </div>
+                </a>
 
-                <div class="list-item">
+                <a class="list-item" href="#solucao-2">
                     <span class="list-num">2.</span>
                     <span class="list-text">
                         ALTA<br>
                         ESPESSURA
                     </span>
-                </div>
+                </a>
 
-                <div class="list-item">
+                <a class="list-item" href="#solucao-3">
                     <span class="list-num">3.</span>
                     <span class="list-text">
                         TANQUES &<br>
                         IMERSÃO
                     </span>
-                </div>
+                </a>
 
-                <div class="list-item">
+                <a class="list-item" href="#solucao-4">
                     <span class="list-num">4.</span>
                     <span class="list-text">
                         ALTA<br>
                         TEMPERATURA
                     </span>
-                </div>
+                </a>
 
-                <div class="list-item border-none">
+                <a class="list-item border-none" href="#solucao-5">
                     <span class="list-num">5.</span>
                     <span class="list-text">
                         PREPARAÇÃO &<br>
                         ACABAMENTO
                     </span>
-                </div>
+                </a>
 
             </div>
 
@@ -206,7 +206,7 @@
              TELA 4 — SOLUÇÃO 01
              ===================================================== -->
 
-        <section class="screen solution-screen bg-placeholder">
+        <section class="screen solution-screen bg-placeholder" id="solucao-1">
 
             <div class="bg-number">01</div>
 
@@ -256,7 +256,7 @@
              TELA 5 — SOLUÇÃO 02
              ===================================================== -->
 
-        <section class="screen solution-screen bg-placeholder">
+        <section class="screen solution-screen bg-placeholder" id="solucao-2">
 
             <div class="bg-number">02</div>
 
@@ -306,7 +306,7 @@
              TELA 6 — SOLUÇÃO 03
              ===================================================== -->
 
-        <section class="screen solution-screen bg-placeholder">
+        <section class="screen solution-screen bg-placeholder" id="solucao-3">
 
             <div class="bg-number">03</div>
 
@@ -354,7 +354,7 @@
              TELA 7 — SOLUÇÃO 04
              ===================================================== -->
 
-        <section class="screen solution-screen bg-placeholder">
+        <section class="screen solution-screen bg-placeholder" id="solucao-4">
 
             <div class="bg-number">04</div>
 
@@ -400,7 +400,7 @@
              TELA 8 — SOLUÇÃO 05
              ===================================================== -->
 
-        <section class="screen solution-screen bg-placeholder">
+        <section class="screen solution-screen bg-placeholder" id="solucao-5">
 
             <div class="bg-number">05</div>
 
@@ -446,7 +446,7 @@
              TELA 9 — CONTATO
              ===================================================== -->
 
-        <section class="screen contact-screen">
+        <section class="screen contact-screen" id="contato">
 
             <div class="contact-header">
 
@@ -470,11 +470,11 @@
 
             <div class="contact-buttons">
 
-                <a href="#" class="btn btn-red">
+                <a href="https://wa.me/5519991019992" class="btn btn-red" target="_blank" rel="noopener noreferrer">
                     Contatar a Sandra ↗
                 </a>
 
-                <a href="#" class="btn btn-outline">
+                <a href="https://wa.me/5519991019992" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
                     Contatar a Advance ↗
                 </a>
 
@@ -491,28 +491,35 @@
                 <ul class="contact-links">
 
                     <li>
-                        <img class="social-icon" src="./icons/instagram.svg" alt="">
-                        <span>@advancetintas</span>
-                        <span class="arrow">↗</span>
+                        <a class="contact-link-row" href="https://www.instagram.com/advancetintas/" target="_blank" rel="noopener noreferrer">
+                            <img class="social-icon" src="./icons/instagram.svg" alt="Instagram">
+                            <span>@advancetintas</span>
+                            <span class="arrow">↗</span>
+                        </a>
                     </li>
 
                     <li>
-                        <img class="social-icon" src="./icons/globe.svg" alt="">
-
-                        <span>www.advancetintas.com.br</span>
-                        <span class="arrow">↗</span>
+                        <a class="contact-link-row" href="https://advancetintas.com.br/" target="_blank" rel="noopener noreferrer">
+                            <img class="social-icon" src="./icons/globe.svg" alt="Site Advance Tintas">
+                            <span>www.advancetintas.com.br</span>
+                            <span class="arrow">↗</span>
+                        </a>
                     </li>
 
                     <li>
-                        <img class="social-icon" src="./icons/whatsapp.svg" alt="">
-                        <span>+55 (19) 99101-9992</span>
-                        <span class="arrow">↗</span>
+                        <a class="contact-link-row" href="https://api.whatsapp.com/send?phone=5519991019992" target="_blank" rel="noopener noreferrer">
+                            <img class="social-icon" src="./icons/whatsapp.svg" alt="WhatsApp">
+                            <span>+55 (19) 99101-9992</span>
+                            <span class="arrow">↗</span>
+                        </a>
                     </li>
 
                     <li class="border-none">
-                        <img class="social-icon" src="./icons/linkedin.svg" alt="">
-                        <span>@advancetintas</span>
-                        <span class="arrow">↗</span>
+                        <a class="contact-link-row" href="https://www.linkedin.com/company/advance-tintas-e-vernizes-ltda-/" target="_blank" rel="noopener noreferrer">
+                            <img class="social-icon" src="./icons/linkedin.svg" alt="LinkedIn">
+                            <span>@advancetintas</span>
+                            <span class="arrow">↗</span>
+                        </a>
                     </li>
 
                 </ul>
@@ -523,7 +530,7 @@
 
     </div>
 
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=6"></script>
 
 </body>
 </html>
