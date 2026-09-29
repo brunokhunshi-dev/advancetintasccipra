@@ -6,6 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!container) return;
 
+    /* QR Code do aviso desktop — usa a URL atual da própria página */
+    const qrTarget = document.getElementById('desktop-qr');
+
+    if (qrTarget && typeof QRCode !== 'undefined') {
+        const mobileUrl = window.location.origin + window.location.pathname + window.location.search;
+
+        new QRCode(qrTarget, {
+            text: mobileUrl,
+            width: 184,
+            height: 184,
+            colorDark: '#040438',
+            colorLight: '#FFFFFF',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+
     /* Logo do rodapé */
     const footerLogo = document.querySelector('.footer-logo');
 
