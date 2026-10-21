@@ -2,7 +2,7 @@
    FONTES
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 
 /* =========================================================
@@ -1103,3 +1103,35 @@ body {
         animation: none;
     }
 }
+
+/* Contato — Figma 138:332, referência de 402 px. */
+.contact-screen { height:auto; min-height:1164px; max-height:none; overflow:visible; padding:64px 24px 32px; flex:none; }
+.contact-header .section-label { display:block; margin:0 0 8px; font:400 12px/1.1 'Outfit',sans-serif; letter-spacing:-.6px; }
+.contact-header h2 { max-width:309px; margin:0 0 13px; font:800 24px/1.2 'Montserrat',sans-serif; letter-spacing:-1.2px; }
+.contact-header p { margin:0; font:400 18px/1.1 'Outfit',sans-serif; }
+.contact-form { margin-top:30px; }
+.contact-field { height:62px; position:relative; border-bottom:.4px solid rgba(4,4,56,.4); }
+.contact-field input { width:100%; height:100%; border:0; border-radius:0; background:transparent; padding:24px 16px 8px; color:var(--blue-dark); font:500 16px/1.1 'Outfit',sans-serif; }
+.contact-field label { position:absolute; left:16px; top:22px; pointer-events:none; font:500 16px/1.1 'Outfit',sans-serif; transition:top .15s,font-size .15s; }
+.contact-field label span { color:var(--red); }
+.contact-field input:focus + label,.contact-field input:not(:placeholder-shown) + label { top:5px; font-size:11px; }
+.contact-field:focus-within { border-bottom-color:var(--red); }
+.contact-field input:focus { outline:none; }
+.sample-request { display:flex; align-items:center; gap:8px; margin:20px 0 26px; font:500 16px/1.1 'Outfit',sans-serif; cursor:pointer; }
+.sample-request input { appearance:none; width:18px; height:18px; flex:0 0 18px; border:1px solid rgba(0,0,0,.1); border-radius:50%; background:var(--light-bg); }
+.sample-request input:checked { background:var(--red); box-shadow:inset 0 0 0 4px var(--light-bg); border-color:var(--red); }
+.contact-form textarea { display:block; width:100%; height:112px; resize:vertical; padding:16px; border:1px solid rgba(4,4,56,.1); border-radius:16px; background:#fff; color:var(--blue-dark); font:500 16px/1.1 'Outfit',sans-serif; }
+.contact-form textarea::placeholder { color:rgba(4,4,56,.4); opacity:1; }
+.contact-form .btn { width:100%; height:56px; margin-top:24px; border:0; border-radius:32px; padding:0; cursor:pointer; font:500 16px/1.1 'Outfit',sans-serif; }
+.contact-privacy { margin-top:9px; color:rgba(4,4,56,.4); text-align:center; font:500 8px/1.1 'Montserrat',sans-serif; }
+.contact-privacy a { color:inherit; font-family:inherit; font-weight:700; text-decoration:underline; }
+.contact-footer { margin-top:24px; }
+.contact-screen .footer-logo { position:relative; width:98px; height:24px; margin:0 0 12px; opacity:.15; }
+.contact-links li { position:relative; height:66px; padding:0 0 12px; border:0; }
+.contact-links li::after { content:''; position:absolute; left:0; right:0; bottom:11px; height:1px; background:rgba(245,30,48,.4); }
+.contact-links .social-icon { width:48px; height:48px; min-width:48px; margin-right:19px; }
+.contact-links span { font:400 18px/1.1 'Outfit',sans-serif; }
+.contact-links .arrow { margin-right:8px; }
+.contact-links .arrow img { display:block; width:16px; height:16px; }
+.contact-form :focus-visible { outline:2px solid var(--red); outline-offset:3px; }
+@media (max-width:374px) { .sample-request { font-size:14px; } .contact-links span { font-size:16px; } .contact-links .social-icon { margin-right:12px; } }
