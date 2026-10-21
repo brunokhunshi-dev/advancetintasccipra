@@ -22,12 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* Logo do rodapé */
-    const footerLogo = document.querySelector('.footer-logo');
-
-    if (footerLogo) {
-        footerLogo.innerHTML = '<img src="./logo.svg" alt="Advance Tintas" style="display:block;width:98px;height:auto;">';
-    }
+    /* Sem endpoint de formulário: encaminha os dados ao WhatsApp comercial. */
+    const contactForm = document.getElementById('contact-form');
+    contactForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!contactForm.reportValidity()) return;
+        const data = new FormData(contactForm);
+        const message = [
+            'Olá! Vim pela página da Advance Tintas no CCIPRA.',
+            `Nome: ${data.get('nome')}`,
+            `Celular/WhatsApp: ${data.get('celular')}`,
+            `Email: ${data.get('email')}`,
+            data.get('empresa') && `Empresa: ${data.get('empresa')}`,
+            data.get('produto') && `Produto: ${data.get('produto')}`,
+            data.has('amostra') && 'Desejo solicitar uma amostra de produto.',
+            data.get('mensagem') && `Mensagem: ${data.get('mensagem')}`
+        ].filter(Boolean).join('\n');
+        window.open(`https://wa.me/5519991019992?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    });
 
     /* Continue rolando */
     if (scrollIndicator) {
