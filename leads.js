@@ -6,6 +6,17 @@ const button = form?.querySelector('button[type="submit"]');
 const status = document.getElementById('contact-status');
 let appCheck;
 let pending;
+function withTimeout(promise, milliseconds) {
+    let timer;
+    const timeout = new Promise((_, reject) => {
+        timer = setTimeout(() => reject(Object.assign(new Error(), { code: 'appcheck-timeout' })), milliseconds);
+    });
+    return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+}
+function showStatus(message) {
+    status.textContent = message;
+    status.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
 function getAppCheck() {
     if (!appCheck) {
         const app = initializeApp({
@@ -36,21 +47,33 @@ form?.addEventListener('submit', async event => {
     if (!pending || pending.fingerprint !== fingerprint) pending = { fingerprint, id: crypto.randomUUID() };
     button.disabled = true;
     button.textContent = 'Enviando…';
-    status.textContent = '';
+    showStatus('Verificando a segurança do envio…');
     try {
-        const { token } = await getToken(getAppCheck());
+        const { token } = await withTimeout(getToken(getAppCheck()), 15000);
+        showStatus('Enviando sua mensagem…');
         const response = await fetch('/api/leads', {
             method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Firebase-AppCheck': token },
             body: JSON.stringify({ ...payload, envioId: pending.id }),
             signal: AbortSignal.timeout(20000)
         });
-        const result = await response.json();
+        const result = await response.json().catch(() => { throw new Error('O serviço de envio está indisponível. Tente novamente mais tarde.'); });
         if (!response.ok || !result.sucesso) throw new Error(result.mensagem || 'Não foi possível enviar agora. Tente novamente.');
-        status.textContent = 'Mensagem enviada! Nossa equipe entrará em contato.';
+        showStatus('Mensagem enviada! Nossa equipe entrará em contato.');
         form.reset(); pending = null;
     } catch (error) {
-        status.textContent = error instanceof Error && !error.code && error.name === 'Error'
-            ? error.message : 'Não foi possível concluir o envio. Verifique sua conexão e tente novamente.';
+        const code = typeof error?.code === 'string' ? error.code : '';
+        if (code === 'appcheck-timeout') {
+            showStatus('A verificação de segurança demorou demais. Atualize a página e tente novamente.');
+        } else if (code.startsWith('appCheck/')) {
+            showStatus('Não foi possível validar a segurança do formulário. Atualize a página e tente novamente.');
+        } else if (error.name === 'TimeoutError' || error.name === 'AbortError') {
+            showStatus('O envio demorou demais. Tente novamente; sua solicitação não será duplicada.');
+        } else {
+            showStatus(error instanceof Error && !code && error.name === 'Error'
+                ? error.message : 'Não foi possível concluir o envio. Verifique sua conexão e tente novamente.');
+        }
+        // Somente código técnico: não registrar token, conteúdo do formulário ou credenciais.
+        console.error('lead_submission_failed', code || error.name || 'unknown');
     } finally {
         button.disabled = false;
         button.textContent = 'Enviar';
