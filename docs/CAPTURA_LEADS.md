@@ -48,3 +48,7 @@ Antes de produção, testar na Vercel com credencial real:
 7. Confirmar que textos com caracteres HTML aparecem como texto no console ou em qualquer futuro painel. Nunca renderizar mensagens com `innerHTML`.
 
 Os testes locais usam dependências simuladas: não validam credencial, App Check real, permissões IAM ou gravação real. Isso só pode ser confirmado depois da configuração remota.
+
+## Compatibilidade de dependências
+
+Firebase Admin 14.5.0 usa `jwks-rsa` 4, cujo carregamento de `jose` 6 via require falha no runtime da Vercel observado (ERR_REQUIRE_ESM). O override limitado ao Firebase Admin fixa `jwks-rsa` em 3.2.2, que usa uma distribuição CommonJS de jose. O teste de regressão inicia um processo Node com `--no-experimental-require-module` para reproduzir essa restrição. Reavaliar o override ao atualizar o SDK; não remover sem executar esse teste.

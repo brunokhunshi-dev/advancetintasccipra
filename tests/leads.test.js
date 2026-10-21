@@ -33,3 +33,10 @@ test('honeypot não grava; payload grande, inválido e limite têm erros seguros
  assert.equal((await handler(request({...payload,status:'admin'}))).status,400);
  const res=await handler(request());assert.equal(res.status,429);assert.ok(!(await res.text()).includes('secret'));
 });
+
+
+test('Firebase Admin carrega sem require(ESM), como no runtime que apresentou falha', async () => {
+ const { spawnSync } = await import('node:child_process');
+ const result = spawnSync(process.execPath, ['--no-experimental-require-module', '--input-type=module', '-e', "await import('firebase-admin/app-check'); await import('firebase-admin/firestore'); await import('./api/leads.js');"], { cwd:process.cwd(), encoding:'utf8' });
+ assert.equal(result.status,0,result.stderr);
+});
