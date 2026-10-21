@@ -1,0 +1,8 @@
+{
+  "name": "advance-ccipra-leads",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "24.x" },
+  "scripts": { "build": "node scripts/build.mjs", "test": "node --test" },
+  "dependencies": { "firebase-admin": "14.5.0" }
+}

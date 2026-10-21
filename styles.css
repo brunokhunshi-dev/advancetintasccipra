@@ -1135,3 +1135,8 @@ body {
 .contact-links .arrow img { display:block; width:16px; height:16px; }
 .contact-form :focus-visible { outline:2px solid var(--red); outline-offset:3px; }
 @media (max-width:374px) { .sample-request { font-size:14px; } .contact-links span { font-size:16px; } .contact-links .social-icon { margin-right:12px; } }
+
+.contact-honeypot { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.contact-status { font:400 14px/1.4 'Outfit',sans-serif; margin-top:12px; }
+.contact-status:empty { display:none; }
+.contact-form button:disabled { opacity:.65; cursor:wait; }

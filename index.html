@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Advance Tintas</title>
 
-    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="stylesheet" href="styles.css?v=9">
 
     <!-- Fonte Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -478,16 +478,19 @@
                 <p>Conte um pouco sobre o que você procura.</p>
             </div>
 
-            <form class="contact-form" id="contact-form">
-                <div class="contact-field"><input id="contact-name" name="nome" autocomplete="name" placeholder=" " required><label for="contact-name">Nome<span>*</span></label></div>
-                <div class="contact-field"><input id="contact-phone" name="celular" type="tel" autocomplete="tel" placeholder=" " required><label for="contact-phone">Celular/Whatsapp<span>*</span></label></div>
-                <div class="contact-field"><input id="contact-email" name="email" type="email" autocomplete="email" placeholder=" " required><label for="contact-email">Email<span>*</span></label></div>
-                <div class="contact-field"><input id="contact-company" name="empresa" autocomplete="organization" placeholder=" "><label for="contact-company">Empresa</label></div>
-                <div class="contact-field"><input id="contact-product" name="produto" placeholder=" "><label for="contact-product">Produto</label></div>
+            <form class="contact-form" id="contact-form" action="/api/leads" method="post">
+                <div class="contact-honeypot" aria-hidden="true"><label for="contact-website">Website</label><input id="contact-website" name="website" tabindex="-1" autocomplete="off"></div>
+                <div class="contact-field"><input id="contact-name" name="nome" minlength="2" maxlength="120" autocomplete="name" placeholder=" " required><label for="contact-name">Nome<span>*</span></label></div>
+                <div class="contact-field"><input id="contact-phone" name="celular" maxlength="32" type="tel" autocomplete="tel" placeholder=" " required><label for="contact-phone">Celular/Whatsapp<span>*</span></label></div>
+                <div class="contact-field"><input id="contact-email" name="email" maxlength="254" type="email" autocomplete="email" placeholder=" " required><label for="contact-email">Email<span>*</span></label></div>
+                <div class="contact-field"><input id="contact-company" name="empresa" maxlength="160" autocomplete="organization" placeholder=" "><label for="contact-company">Empresa</label></div>
+                <div class="contact-field"><input id="contact-product" name="produto" maxlength="160" placeholder=" "><label for="contact-product">Produto</label></div>
                 <label class="sample-request"><input name="amostra" type="checkbox"><span>Desejo solicitar uma amostra de produto</span></label>
-                <textarea name="mensagem" aria-label="Envie uma mensagem" placeholder="Envie uma mensagem"></textarea>
+                <textarea maxlength="3000" name="mensagem" aria-label="Envie uma mensagem" placeholder="Envie uma mensagem"></textarea>
                 <button class="btn btn-red" type="submit">Enviar</button>
                 <p class="contact-privacy">Ao enviar este formulário, seus dados serão utilizados pela Advance Tintas para atender à sua solicitação e realizar o contato comercial relacionado ao seu interesse, conforme nossa <a href="https://advancetintas.com.br/politica-de-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>.</p>
+                <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+                <noscript>Ative o JavaScript para enviar o formulário.</noscript>
             </form>
 
             <div class="contact-footer">
@@ -538,7 +541,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=9"></script>
+    <script type="module" src="leads.js?v=1"></script>
 
 </body>
 </html>
