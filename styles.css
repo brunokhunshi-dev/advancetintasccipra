@@ -1104,9 +1104,12 @@ body {
     }
 }
 
-/* Páginas 3, 4 e 5 temporariamente ocultas; conteúdo preservado. */
-.mobile-app-container > .index-screen,
-.mobile-app-container > #solucao-1,
-.mobile-app-container > #solucao-2 {
+/* Páginas 6, 7 e 8 temporariamente ocultas; conteúdo preservado. */
+.mobile-app-container > #solucao-3,
+.mobile-app-container > #solucao-4,
+.mobile-app-container > #solucao-5,
+.index-list a[href="#solucao-3"],
+.index-list a[href="#solucao-4"],
+.index-list a[href="#solucao-5"] {
     display: none;
 }
