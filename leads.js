@@ -39,7 +39,7 @@ form?.addEventListener('submit', async event => {
     const data = new FormData(form);
     const payload = {
         nome: data.get('nome'), celular: data.get('celular'), email: data.get('email'),
-        empresa: data.get('empresa'), produto: data.get('produto'),
+        empresa: data.get('empresa'), produto: data.get('produto') || null,
         solicitaAmostra: data.has('amostra'), mensagem: data.get('mensagem'), website: data.get('website') || ''
     };
     const fingerprint = JSON.stringify(payload);

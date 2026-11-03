@@ -11,14 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const productInput = document.getElementById('contact-product');
     const productList = document.getElementById('product-options');
     if (productInput && productList) {
-        const options = ['Adzinc 9500', 'Econvance Epoxy HDF 3500', 'Ecovance Epoxy WST', 'Outro'];
+        const options = ['Adzinc 9500', 'Ecovance Epoxy HDF 3500', 'Ecovance Epoxy WST', 'Outro'];
         let selected = '';
         let filtered = options;
         let active = -1;
         const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-        const validate = () => productInput.setCustomValidity(
-            selected && productInput.value === selected ? '' : 'Selecione um produto da lista.'
-        );
+        const productValue = document.getElementById('contact-product-value');
+        const validate = () => {
+            productInput.setCustomValidity('');
+            productValue.value = selected && productInput.value === selected ? selected : '';
+        };
         const close = () => {
             productList.hidden = true;
             productInput.setAttribute('aria-expanded', 'false');

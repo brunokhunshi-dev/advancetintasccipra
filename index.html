@@ -455,8 +455,9 @@
                 <div class="contact-field"><input id="contact-email" name="email" maxlength="254" type="email" autocomplete="email" placeholder=" " required><label for="contact-email">Email<span>*</span></label></div>
                 <div class="contact-field"><input id="contact-company" name="empresa" maxlength="160" autocomplete="organization" placeholder=" "><label for="contact-company">Empresa</label></div>
                 <div class="contact-field product-picker">
-                    <input id="contact-product" name="produto" maxlength="160" placeholder=" " autocomplete="off" required role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="product-options">
-                    <label for="contact-product">Produto<span>*</span></label>
+                    <input id="contact-product" maxlength="160" placeholder=" " autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="product-options">
+                    <label for="contact-product">Produto</label>
+                    <input type="hidden" id="contact-product-value" name="produto" value="">
                     <ul id="product-options" class="product-options" role="listbox" aria-label="Produtos" hidden></ul>
                 </div>
                 <label class="sample-request"><input name="amostra" type="checkbox"><span>Desejo solicitar uma amostra de produto</span></label>
@@ -515,8 +516,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="script.js?v=12"></script>
-    <script type="module" src="leads.js?v=2"></script>
+    <script src="script.js?v=13"></script>
+    <script type="module" src="leads.js?v=3"></script>
 
 </body>
 </html>

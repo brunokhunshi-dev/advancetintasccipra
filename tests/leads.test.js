@@ -41,7 +41,8 @@ test('Firebase Admin carrega sem require(ESM), como no runtime que apresentou fa
  assert.equal(result.status,0,result.stderr);
 });
 
-test('produto deve ser uma das quatro opções obrigatórias', () => {
- for (const produto of ["Adzinc 9500","Econvance Epoxy HDF 3500","Ecovance Epoxy WST","Outro"]) assert.equal(validateLead({...payload, produto}).lead.produto, produto);
- for (const produto of ['', undefined, 'Produto inventado', 'Adzinc']) assert.throws(() => validateLead({...payload, produto}));
+test('produto aceita opções cadastradas ou null', () => {
+ for (const produto of ["Adzinc 9500","Ecovance Epoxy HDF 3500","Ecovance Epoxy WST","Outro"]) assert.equal(validateLead({...payload, produto}).lead.produto, produto);
+ for (const produto of ['', '   ', undefined, null]) assert.equal(validateLead({...payload, produto}).lead.produto, null);
+ for (const produto of ['Produto inventado', 'Adzinc', 'Econvance Epoxy HDF 3500']) assert.throws(() => validateLead({...payload, produto}));
 });
