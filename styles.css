@@ -1194,3 +1194,9 @@ body {
 .product-options [aria-selected="true"],
 .product-options [role="option"]:hover { background: rgba(15,41,96,.08); }
 .product-options .product-no-results { padding: 12px 10px; font-size: 14px; }
+
+/* Títulos das soluções 03 e 04 em peso regular. */
+#solucao-1 .solution-content h2,
+#solucao-2 .solution-content h2 {
+    font-weight: 400;
+}
