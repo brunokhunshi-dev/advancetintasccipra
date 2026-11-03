@@ -504,23 +504,23 @@ body {
    IMAGENS
    ========================================================= */
 
-.solution-screen:nth-of-type(4) {
+#solucao-1 {
     background-image: url('./fotos/1.png');
 }
 
-.solution-screen:nth-of-type(5) {
+#solucao-2 {
     background-image: url('./fotos/2.png');
 }
 
-.solution-screen:nth-of-type(6) {
+#solucao-3 {
     background-image: url('./fotos/3.png');
 }
 
-.solution-screen:nth-of-type(7) {
+#solucao-4 {
     background-image: url('./fotos/4.png');
 }
 
-.solution-screen:nth-of-type(8) {
+#solucao-5 {
     background-image: url('./fotos/5.png');
 }
 
@@ -1112,4 +1112,54 @@ body {
 .index-list a[href="#solucao-4"],
 .index-list a[href="#solucao-5"] {
     display: none;
+}
+
+/* Destaques de produto — Figma 145:197 e 145:254 */
+.product-screen {
+    color: var(--white);
+    background: var(--blue-dark);
+    padding: 48px 24px 24px;
+    min-height: 740px;
+    max-height: none;
+    justify-content: space-between;
+    gap: 32px;
+}
+.product-photo {
+    position: absolute;
+    width: 150.249%;
+    height: 103.204%;
+    left: -25.124%;
+    top: -1.144%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.product-photo img { position: absolute; max-width: none; }
+.product-hdf3500 .product-photo img {
+    width: 94.01%; height: 112.06%; left: 8.56%; top: -11.2%;
+}
+.product-adzinc9500 .product-photo img {
+    width: 224.06%; height: 100%; left: -111.95%; top: 0;
+}
+.product-screen::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(0, 0, 0, 0.4); pointer-events: none;
+}
+.product-heading, .product-benefits { position: relative; z-index: 1; }
+.product-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 96px; font-weight: 900; line-height: .9026;
+    color: rgba(255,255,255,.15); margin-bottom: 13px;
+}
+.product-heading h2 {
+    font-size: 36px; font-weight: 400; line-height: 1.1; margin-bottom: 7px;
+}
+.product-subtitle { font-size: 18px; font-weight: 400; line-height: 1.1; margin-bottom: 6px; }
+.product-tags { gap: 5px; margin: 0; }
+.product-tags .tag { font-size: 10px; line-height: 1.1; padding: 6px; border-radius: 32px; color: var(--white); }
+.product-benefits { display: grid; gap: 24px; margin-top: auto; }
+.product-benefits dt { font-size: 18px; font-weight: 500; line-height: 1.1; margin-bottom: 4px; }
+.product-benefits dd { font-size: 12px; font-weight: 300; line-height: 1.1; margin: 0; }
+@media (max-width: 375px) {
+    .product-heading h2 { font-size: 32px; }
+    .product-benefits dt { font-size: 17px; }
 }
