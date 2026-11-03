@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateLead, nextLimits } from '../lib/lead-validation.js';
 import { makeHandler } from '../lib/lead-handler.js';
-const payload = { nome:'Bruno Souza', celular:'(19) 99999-9999', email:'BRUNO@example.com', empresa:'Advance', produto:'Epóxi', solicitaAmostra:true, mensagem:'Consulta', website:'', envioId:'12345678-1234-4234-8234-123456789abc' };
+const payload = { nome:'Bruno Souza', celular:'(19) 99999-9999', email:'BRUNO@example.com', empresa:'Advance', produto:'Adzinc 9500', solicitaAmostra:true, mensagem:'Consulta', website:'', envioId:'12345678-1234-4234-8234-123456789abc' };
 const origin = 'https://advancetintasccipra.vercel.app';
 const request = (data = payload, headers = {}) => new Request(`${origin}/api/leads`, { method:'POST', headers:{ origin, 'content-type':'application/json', 'x-firebase-appcheck':'valid', ...headers }, body:JSON.stringify(data) });
 test('normaliza dados e rejeita campos internos e formatos inválidos', () => {
@@ -39,4 +39,9 @@ test('Firebase Admin carrega sem require(ESM), como no runtime que apresentou fa
  const { spawnSync } = await import('node:child_process');
  const result = spawnSync(process.execPath, ['--no-experimental-require-module', '--input-type=module', '-e', "await import('firebase-admin/app-check'); await import('firebase-admin/firestore'); await import('./api/leads.js');"], { cwd:process.cwd(), encoding:'utf8' });
  assert.equal(result.status,0,result.stderr);
+});
+
+test('produto deve ser uma das quatro opções obrigatórias', () => {
+ for (const produto of ["Adzinc 9500","Econvance Epoxy HDF 3500","Ecovance Epoxy WST","Outro"]) assert.equal(validateLead({...payload, produto}).lead.produto, produto);
+ for (const produto of ['', undefined, 'Produto inventado', 'Adzinc']) assert.throws(() => validateLead({...payload, produto}));
 });

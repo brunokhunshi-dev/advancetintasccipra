@@ -454,7 +454,7 @@
                 <div class="contact-field"><input id="contact-phone" name="celular" maxlength="32" type="tel" autocomplete="tel" placeholder=" " required><label for="contact-phone">Celular/Whatsapp<span>*</span></label></div>
                 <div class="contact-field"><input id="contact-email" name="email" maxlength="254" type="email" autocomplete="email" placeholder=" " required><label for="contact-email">Email<span>*</span></label></div>
                 <div class="contact-field"><input id="contact-company" name="empresa" maxlength="160" autocomplete="organization" placeholder=" "><label for="contact-company">Empresa</label></div>
-                <div class="contact-field"><input id="contact-product" name="produto" maxlength="160" placeholder=" "><label for="contact-product">Produto</label></div>
+                <div class="contact-field"><input id="contact-product" name="produto" list="contact-product-options" maxlength="160" placeholder=" " autocomplete="off" required pattern="Adzinc 9500|Econvance Epoxy HDF 3500|Ecovance Epoxy WST|Outro" title="Escolha um produto da lista ou selecione Outro."><label for="contact-product">Produto<span>*</span></label><datalist id="contact-product-options"><option value="Adzinc 9500"></option><option value="Econvance Epoxy HDF 3500"></option><option value="Ecovance Epoxy WST"></option><option value="Outro"></option></datalist></div>
                 <label class="sample-request"><input name="amostra" type="checkbox"><span>Desejo solicitar uma amostra de produto</span></label>
                 <textarea maxlength="3000" name="mensagem" aria-label="Envie uma mensagem" placeholder="Envie uma mensagem"></textarea>
                 <button class="btn btn-red" type="submit">Enviar</button>
