@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Advance Tintas</title>
 
-    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="stylesheet" href="styles.css?v=10">
 
     <!-- Fonte Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +77,8 @@
                     com você contra<br>
                     a corrosão.
                 </h1>
+
+                <a class="hero-contact-button" href="#contato">Entre em contato</a>
 
                 <p class="scroll-indicator">
                     CONTINUE ROLANDO PARA BAIXO
@@ -477,52 +479,29 @@
         <section class="screen contact-screen" id="contato">
 
             <div class="contact-header">
-
-                <span class="section-label red-text">
-                    ENTRE EM CONTATO
-                </span>
-
-                <h2>
-                    Ficou alguma dúvida ou quer falar com um representante?
-                </h2>
-
-                <p>
-                    Envie uma mensagem!
-                </p>
-
-                <p>
-                    Ficaremos felizes de conversar com você.
-                </p>
-
+                <span class="section-label red-text">ENTRE EM CONTATO</span>
+                <h2>Vamos encontrar a solução ideal para a sua necessidade?</h2>
+                <p>Conte um pouco sobre o que você procura.</p>
             </div>
 
-            <div class="contact-buttons">
-
-                <a href="https://wa.me/5519991019992" class="btn btn-red" target="_blank" rel="noopener noreferrer">
-                    <span>Contatar a Sandra</span>
-                    <svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 17L17 7"></path>
-                        <path d="M9 7H17V15"></path>
-                    </svg>
-                </a>
-
-                <a href="https://wa.me/5519991019992" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-                    <span>Contatar a Advance</span>
-                    <svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 17L17 7"></path>
-                        <path d="M9 7H17V15"></path>
-                    </svg>
-                </a>
-
-            </div>
+            <form class="contact-form" id="contact-form" action="/api/leads" method="post">
+                <div class="contact-honeypot" aria-hidden="true"><label for="contact-website">Website</label><input id="contact-website" name="website" tabindex="-1" autocomplete="off"></div>
+                <div class="contact-field"><input id="contact-name" name="nome" minlength="2" maxlength="120" autocomplete="name" placeholder=" " required><label for="contact-name">Nome<span>*</span></label></div>
+                <div class="contact-field"><input id="contact-phone" name="celular" maxlength="32" type="tel" autocomplete="tel" placeholder=" " required><label for="contact-phone">Celular/Whatsapp<span>*</span></label></div>
+                <div class="contact-field"><input id="contact-email" name="email" maxlength="254" type="email" autocomplete="email" placeholder=" " required><label for="contact-email">Email<span>*</span></label></div>
+                <div class="contact-field"><input id="contact-company" name="empresa" maxlength="160" autocomplete="organization" placeholder=" "><label for="contact-company">Empresa</label></div>
+                <div class="contact-field"><input id="contact-product" name="produto" maxlength="160" placeholder=" "><label for="contact-product">Produto</label></div>
+                <label class="sample-request"><input name="amostra" type="checkbox"><span>Desejo solicitar uma amostra de produto</span></label>
+                <textarea maxlength="3000" name="mensagem" aria-label="Envie uma mensagem" placeholder="Envie uma mensagem"></textarea>
+                <button class="btn btn-red" type="submit">Enviar</button>
+                <p class="contact-privacy">Ao enviar este formulário, seus dados serão utilizados pela Advance Tintas para atender à sua solicitação e realizar o contato comercial relacionado ao seu interesse, conforme nossa <a href="https://advancetintas.com.br/politica-de-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>.</p>
+                <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+                <noscript>Ative o JavaScript para enviar o formulário.</noscript>
+            </form>
 
             <div class="contact-footer">
 
-                <div class="footer-logo">
-                    <span>
-                        ADVANCE
-                    </span>
-                </div>
+                <div class="footer-logo"><img src="./logo.svg" alt="Advance Tintas" width="98"></div>
 
                 <ul class="contact-links">
 
@@ -530,10 +509,7 @@
                         <a class="contact-link-row" href="https://www.instagram.com/advancetintas/" target="_blank" rel="noopener noreferrer">
                             <img class="social-icon" src="./icons/instagram.svg" alt="Instagram">
                             <span>@advancetintas</span>
-                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 17L17 7"></path>
-                        <path d="M9 7H17V15"></path>
-                    </svg></span>
+                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg></span>
                         </a>
                     </li>
 
@@ -541,10 +517,7 @@
                         <a class="contact-link-row" href="https://advancetintas.com.br/" target="_blank" rel="noopener noreferrer">
                             <img class="social-icon" src="./icons/globe.svg" alt="Site Advance Tintas">
                             <span>www.advancetintas.com.br</span>
-                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 17L17 7"></path>
-                        <path d="M9 7H17V15"></path>
-                    </svg></span>
+                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg></span>
                         </a>
                     </li>
 
@@ -552,21 +525,15 @@
                         <a class="contact-link-row" href="https://api.whatsapp.com/send?phone=5519991019992" target="_blank" rel="noopener noreferrer">
                             <img class="social-icon" src="./icons/whatsapp.svg" alt="WhatsApp">
                             <span>+55 (19) 99101-9992</span>
-                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 17L17 7"></path>
-                        <path d="M9 7H17V15"></path>
-                    </svg></span>
+                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg></span>
                         </a>
                     </li>
 
-                    <li class="border-none">
+                    <li>
                         <a class="contact-link-row" href="https://www.linkedin.com/company/advance-tintas-e-vernizes-ltda-/" target="_blank" rel="noopener noreferrer">
                             <img class="social-icon" src="./icons/linkedin.svg" alt="LinkedIn">
                             <span>@advancetintas</span>
-                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 17L17 7"></path>
-                        <path d="M9 7H17V15"></path>
-                    </svg></span>
+                            <span class="arrow"><svg class="link-arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M9 7H17V15"></path></svg></span>
                         </a>
                     </li>
 
@@ -580,7 +547,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=10"></script>
+    <script type="module" src="leads.js?v=2"></script>
 
 </body>
 </html>

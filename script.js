@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         container.addEventListener('wheel', hideScrollIndicator, { passive: true, once: true });
     }
 
-    /* Navegação do índice */
-    document.querySelectorAll('.index-list a[href^="#"]').forEach((link) => {
+    /* Navegação do índice e atalho de contato */
+    document.querySelectorAll('.index-list a[href^="#"], .hero-contact-button[href^="#"]').forEach((link) => {
         link.addEventListener('click', (event) => {
             const target = document.querySelector(link.getAttribute('href'));
 
