@@ -1128,7 +1128,7 @@ body {
 .sample-request { display:flex; align-items:center; gap:8px; margin:20px 0 26px; font:500 16px/1.1 'Outfit',sans-serif; cursor:pointer; }
 .sample-request input { appearance:none; width:18px; height:18px; flex:0 0 18px; border:1px solid rgba(0,0,0,.1); border-radius:50%; background:var(--light-bg); }
 .sample-request input:checked { background:var(--red); box-shadow:inset 0 0 0 4px var(--light-bg); border-color:var(--red); }
-.contact-form textarea { display:block; width:100%; height:112px; resize:vertical; padding:16px; border:1px solid rgba(4,4,56,.1); border-radius:16px; background:#fff; color:var(--blue-dark); font:500 16px/1.1 'Outfit',sans-serif; }
+.contact-form textarea { display:block; width:100%; height:112px; resize:none; padding:16px; border:1px solid rgba(4,4,56,.1); border-radius:16px; background:#fff; color:var(--blue-dark); font:500 16px/1.1 'Outfit',sans-serif; }
 .contact-form textarea::placeholder { color:rgba(4,4,56,.4); opacity:1; }
 .contact-form .btn { width:100%; height:56px; margin-top:24px; border:0; border-radius:32px; padding:0; cursor:pointer; font:500 16px/1.1 'Outfit',sans-serif; }
 .contact-privacy { margin-top:9px; color:rgba(4,4,56,.4); text-align:center; font:500 8px/1.1 'Montserrat',sans-serif; }
@@ -1175,3 +1175,22 @@ body {
     .index-list .list-text { padding: .8rem 0; font-size: 1.1rem; }
     .index-list .list-num { font-size: 3rem; }
 }
+
+/* Busca de produto sem controles nativos do datalist. */
+.product-picker { z-index: 5; }
+.product-options {
+    position: absolute; top: 100%; left: 0; right: 0;
+    margin: 4px 0 0; padding: 6px; list-style: none;
+    border: 1px solid rgba(4,4,56,.15); border-radius: 12px;
+    background: var(--white); color: var(--blue-dark);
+    box-shadow: 0 8px 24px rgba(4,4,56,.12);
+    max-height: 220px; overflow-y: auto;
+}
+.product-options[hidden] { display: none; }
+.product-options [role="option"] {
+    padding: 12px 10px; border-radius: 8px;
+    font-size: 16px; line-height: 1.3; cursor: pointer;
+}
+.product-options [aria-selected="true"],
+.product-options [role="option"]:hover { background: rgba(15,41,96,.08); }
+.product-options .product-no-results { padding: 12px 10px; font-size: 14px; }
