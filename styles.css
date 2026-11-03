@@ -1103,3 +1103,10 @@ body {
         animation: none;
     }
 }
+
+/* Páginas 3, 4 e 5 temporariamente ocultas; conteúdo preservado. */
+.mobile-app-container > .index-screen,
+.mobile-app-container > #solucao-1,
+.mobile-app-container > #solucao-2 {
+    display: none;
+}
