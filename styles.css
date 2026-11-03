@@ -297,89 +297,37 @@ body {
    TELA 2 — CONHEÇA
    ========================================================= */
 
+/* Sobre — Figma 9:47 */
 .about-screen {
-    background-color: var(--blue-dark);
-
+    background: var(--blue-dark);
     color: var(--white);
-
-    padding: 32px 24px;
-
+    padding: 64px 24px 32px;
+    min-height: 780px;
+    max-height: none;
     justify-content: space-between;
+    gap: 36px;
 }
-
-
-/* Título */
-
-.about-content h2 {
-    font-family: 'Montserrat', sans-serif;
-
-    font-size: 52pt;
-
-    line-height: 110%;
-
-    font-weight: 700;
-
-    letter-spacing: -0.05em;
-
-    color: rgba(255, 255, 255, 0.2);
-
-    margin-bottom: 1.5rem;
-}
-
-.about-content p {
-    font-size: 1.1rem;
-
-    line-height: 1.4;
-
-    margin-bottom: 1rem;
-
-    font-weight: 300;
-}
-
-
-/* Cards */
-
-.icon-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 0.5rem;
-}
-
-.icon-card {
-    background-color: var(--white);
-
-    border-radius: 12px;
-
-    padding: 1rem 0.5rem;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-}
-
-.icon-img-placeholder {
-    width: 40px;
-    height: 40px;
-
-    border: 1.5px solid var(--red);
-
-    border-radius: 8px;
-
-    margin-bottom: 0.5rem;
-}
-
-.icon-card span {
-    color: var(--red);
-
-    font-size: 0.65rem;
-
-    font-weight: 500;
+.about-photo { position: absolute; inset: 0; pointer-events: none; }
+.about-photo img { position: absolute; width: 162.935%; height: 100%; max-width: none; left: -13.85%; top: -.04%; }
+.about-photo::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.35); }
+.about-intro, .about-highlights { position: relative; z-index: 1; }
+.about-logo { position: relative; width: 106px; height: 26px; margin-bottom: 18px; }
+.about-logo img { position: absolute; display: block; }
+.about-logo-top { top: .112px; left: 0; }
+.about-logo-bottom { top: 16.562px; left: 0; }
+.about-copy p { font-size: 18px; font-weight: 400; line-height: 1.1; }
+.about-copy p + p { margin-top: 20px; }
+.about-highlights { list-style: none; display: grid; gap: 48px; margin-top: auto; }
+.about-highlights li { display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 5px; align-items: center; }
+.about-icon { width: 44px; display: flex; align-items: center; justify-content: center; }
+.about-icon img { display: block; flex-shrink: 0; }
+.about-highlights h2 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; line-height: 22px; letter-spacing: -.9px; }
+.about-highlights p { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 400; line-height: 17px; letter-spacing: -.7px; }
+.about-highlights li:first-child h2, .about-highlights li:first-child p { font-family: 'Outfit', sans-serif; }
+.about-highlights li:first-child h2 { letter-spacing: -.54px; }
+@media (max-width: 375px) {
+    .about-highlights { gap: 30px; }
+    .about-highlights p { font-size: 13px; }
 }
 
 
@@ -1220,3 +1168,10 @@ body {
 }
 .hero-contact-button:focus-visible { outline: 2px solid white; outline-offset: 4px; }
 .hero-contact-button:active { background: rgba(255, 255, 255, 0.1); }
+
+@media (max-height: 760px) {
+    .index-header h2 { font-size: 44pt; }
+    .index-header p { margin-bottom: 1rem; }
+    .index-list .list-text { padding: .8rem 0; font-size: 1.1rem; }
+    .index-list .list-num { font-size: 3rem; }
+}

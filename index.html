@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Advance Tintas</title>
 
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=11">
 
     <!-- Fonte Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
 
     <!-- Fonte Montserrat -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap"
         rel="stylesheet"
     >
 
@@ -92,68 +92,24 @@
              TELA 2 — CONHEÇA
              ===================================================== -->
 
-        <section class="screen about-screen">
-
-            <div class="about-content">
-
-                <span class="section-label red-text">
-                    CONHEÇA
-                </span>
-
-                <h2>
-                    Advance<br>
-                    Tintas
-                </h2>
-
-                <p>
-                    Atuamos há mais de 30 anos no segmento de
-                    revestimentos industriais anticorrosivos de
-                    alta performance.
-                </p>
-
-                <p>
-                    Constantemente aprimorando e desenvolvendo
-                    novas tecnologias e garantindo qualidade,
-                    entrega e inovação nas mais rígidas normas
-                    do mercado.
-                </p>
-
+        <section class="screen about-screen" aria-label="Sobre a Advance Tintas">
+            <div class="about-photo" aria-hidden="true"><img src="./fotos/sobre/plataforma.png" alt="" loading="lazy"></div>
+            <div class="about-intro">
+                <div class="about-logo" role="img" aria-label="Advance Tintas">
+                    <img class="about-logo-top" src="./fotos/sobre/logo-superior.svg" alt="">
+                    <img class="about-logo-bottom" src="./fotos/sobre/logo-inferior.svg" alt="">
+                </div>
+                <div class="about-copy">
+                    <p>Há mais de 30 anos, a Advance desenvolve revestimentos industriais anticorrosivos de alta performance, unindo inovação, tecnologia própria e excelência técnica.</p>
+                    <p>Com soluções alinhadas às mais rigorosas normas do mercado, oferecemos proteção industrial com integridade, diversidade e compromisso com a sustentabilidade.</p>
+                </div>
             </div>
-
-            <div class="icon-grid">
-
-                <div class="icon-card">
-                    <div class="icon-img-placeholder"></div>
-                    <span>TANQUES</span>
-                </div>
-
-                <div class="icon-card">
-                    <div class="icon-img-placeholder"></div>
-                    <span>CONVÉS</span>
-                </div>
-
-                <div class="icon-card">
-                    <div class="icon-img-placeholder"></div>
-                    <span>ESTRUTURAS METÁLICAS</span>
-                </div>
-
-                <div class="icon-card">
-                    <div class="icon-img-placeholder"></div>
-                    <span>COSTADO ACIMA D'ÁGUA</span>
-                </div>
-
-                <div class="icon-card">
-                    <div class="icon-img-placeholder"></div>
-                    <span>EQUIPAMENTOS</span>
-                </div>
-
-                <div class="icon-card">
-                    <div class="icon-img-placeholder"></div>
-                    <span>TUBULAÇÕES</span>
-                </div>
-
-            </div>
-
+            <ul class="about-highlights">
+                <li><div class="about-icon"><img src="./fotos/sobre/anticorrosivas.svg" alt=""></div><div><h2>Anticorrosivas</h2><p>Para manutenção industrial e Offshore</p></div></li>
+                <li><div class="about-icon"><img src="./fotos/sobre/desempenho.svg" alt=""></div><div><h2>Alto Desempenho</h2><p>Atendendo a norma N-2943 da Petrobrás</p></div></li>
+                <li><div class="about-icon"><img src="./fotos/sobre/normatizadas.svg" alt=""></div><div><h2>Normatizadas</h2><p>Linha normatizada Petrobrás, completa</p></div></li>
+                <li><div class="about-icon"><img src="./fotos/sobre/atmosfera.svg" alt=""></div><div><h2>Atmosfera Severa</h2><p>Proteção para ambientes extremos, conforme ISO 12944-9.</p></div></li>
+            </ul>
         </section>
 
 
@@ -186,11 +142,19 @@
                     <span class="list-num">1.</span>
                     <span class="list-text">ECOVANCE<br>EPOXY HDF 3500</span>
                 </a>
-                <a class="list-item border-none" href="#produto-adzinc9500">
+                <a class="list-item" href="#produto-adzinc9500">
                     <span class="list-num">2.</span>
                     <span class="list-text">ADZINC<br>9500</span>
                 </a>
 
+                <a class="list-item" href="#solucao-1">
+                    <span class="list-num">3.</span>
+                    <span class="list-text">ALTO<br>DESEMPENHO</span>
+                </a>
+                <a class="list-item border-none" href="#solucao-2">
+                    <span class="list-num">4.</span>
+                    <span class="list-text">ALTA<br>ESPESSURA</span>
+                </a>
             </div>
 
         </section>
@@ -238,7 +202,7 @@
 
         <section class="screen solution-screen bg-placeholder" id="solucao-1">
 
-            <div class="bg-number">01</div>
+            <div class="bg-number">03</div>
 
             <div class="solution-content">
 
@@ -288,7 +252,7 @@
 
         <section class="screen solution-screen bg-placeholder" id="solucao-2">
 
-            <div class="bg-number">02</div>
+            <div class="bg-number">04</div>
 
             <div class="solution-content">
 
