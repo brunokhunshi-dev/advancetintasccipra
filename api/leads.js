@@ -1,3 +1,4 @@
+import { getResponsible } from '../lead-origin.js';
 import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { getAppCheck } from 'firebase-admin/app-check';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
@@ -27,7 +28,7 @@ const handler = makeHandler({
     const decoded = await getAppCheck(app).verifyToken(token);
     if (decoded.appId !== appId) throw new Error('app');
   },
-  async save({ envioId, lead }, ip) {
+  async save({ envioId, lead, origemCodigo }, ip) {
     const { db, secret } = services();
     const key = createHmac('sha256', secret).update(ip).digest('hex');
     const leadRef = db.collection('leads').doc(envioId);
@@ -44,7 +45,7 @@ const handler = makeHandler({
       tx.set(globalRef, { day, count: globalCount + 1 });
       tx.create(leadRef, {
         ...lead, schemaVersion: 1,
-        origem: { canal: 'landing_page', campanha: 'ccipra', formularioVersao: '1' },
+        origem: { canal: 'landing_page', campanha: 'ccipra', formularioVersao: '1', responsavel: getResponsible(origemCodigo) },
         privacidade: { avisoVersao: '1', politicaUrl: 'https://advancetintas.com.br/politica-de-privacidade' },
         status: 'novo', responsavelUid: null,
         criadoEm: FieldValue.serverTimestamp(), atualizadoEm: FieldValue.serverTimestamp()

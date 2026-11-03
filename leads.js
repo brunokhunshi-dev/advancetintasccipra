@@ -1,6 +1,10 @@
+import { resolveOrigin } from './lead-origin.js?v=1';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js';
 import { initializeAppCheck, ReCaptchaEnterpriseProvider, getToken } from 'https://www.gstatic.com/firebasejs/13.1.0/firebase-app-check.js';
 
+let session;
+try { session = window.sessionStorage; } catch {}
+const origemCodigo = resolveOrigin(window.location.search, session);
 const form = document.getElementById('contact-form');
 const button = form?.querySelector('button[type="submit"]');
 const status = document.getElementById('contact-status');
@@ -38,6 +42,7 @@ form?.addEventListener('submit', async event => {
     if (button.disabled || !form.reportValidity()) return;
     const data = new FormData(form);
     const payload = {
+        origemCodigo,
         nome: data.get('nome'), celular: data.get('celular'), email: data.get('email'),
         empresa: data.get('empresa'), produto: data.get('produto') || null,
         solicitaAmostra: data.has('amostra'), mensagem: data.get('mensagem'), website: data.get('website') || ''
