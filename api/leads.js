@@ -1,11 +1,9 @@
 import { getResponsible } from '../lead-origin.js';
 import { cert, getApps, initializeApp } from 'firebase-admin/app';
-import { getAppCheck } from 'firebase-admin/app-check';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { makeHandler } from '../lib/lead-handler.js';
 import { nextGlobalLimit } from '../lib/lead-validation.js';
 const projectId = 'ccipra-leads';
-const appId = '1:469987907955:web:414350be001aaaf6cccd06';
 function services() {
   const credential = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON || '{}');
   if (credential.project_id !== projectId) throw new Error('configuration');
@@ -14,11 +12,6 @@ function services() {
 }
 const handler = makeHandler({
   origins: ['https://advancetintasccipra.vercel.app', ...(process.env.LEAD_ALLOWED_ORIGINS || '').split(',').map(v => v.trim()).filter(Boolean)],
-  async verify(token) {
-    const { app } = services();
-    const decoded = await getAppCheck(app).verifyToken(token);
-    if (decoded.appId !== appId) throw new Error('app');
-  },
   async save({ envioId, lead, origemCodigo }) {
     const { db } = services();
     const leadRef = db.collection('leads').doc(envioId);
