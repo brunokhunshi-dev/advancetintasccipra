@@ -4,8 +4,8 @@ import { getAppCheck } from 'firebase-admin/app-check';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { makeHandler } from '../lib/lead-handler.js';
 import { nextGlobalLimit } from '../lib/lead-validation.js';
-const projectId = 'captura-de-leads---ccipra-2026';
-const appId = '1:932687327882:web:37dd2e5922d7ead39db373';
+const projectId = 'ccipra-leads';
+const appId = '1:469987907955:web:414350be001aaaf6cccd06';
 function services() {
   const credential = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON || '{}');
   if (credential.project_id !== projectId) throw new Error('configuration');

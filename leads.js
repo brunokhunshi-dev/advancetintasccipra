@@ -24,14 +24,14 @@ function showStatus(message) {
 function getAppCheck() {
     if (!appCheck) {
         const app = initializeApp({
-            apiKey: 'AIzaSyDvYmXtMjd9g9rqFokzSGD_wGlP4lODILI',
-            authDomain: 'captura-de-leads---ccipra-2026.firebaseapp.com',
-            projectId: 'captura-de-leads---ccipra-2026',
-            messagingSenderId: '932687327882',
-            appId: '1:932687327882:web:37dd2e5922d7ead39db373'
+            apiKey: 'AIzaSyBy_YjWUq4JMLeRotZcGNe5IDnO2e2aQjM',
+            authDomain: 'ccipra-leads.firebaseapp.com',
+            projectId: 'ccipra-leads',
+            messagingSenderId: '469987907955',
+            appId: '1:469987907955:web:414350be001aaaf6cccd06'
         });
         appCheck = initializeAppCheck(app, {
-            provider: new ReCaptchaEnterpriseProvider('6LcWafotAAAAAJUMnmqJvOy3BWCv0She-Dw27x1A'),
+            provider: new ReCaptchaEnterpriseProvider('__CCIPRA_RECAPTCHA_ENTERPRISE_SITE_KEY__'),
             isTokenAutoRefreshEnabled: true
         });
     }
