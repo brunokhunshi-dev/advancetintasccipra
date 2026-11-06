@@ -8,4 +8,9 @@ await mkdir('public');
 for (const file of ['index.html', 'styles.css', 'script.js', 'leads.js', 'lead-origin.js', 'logo.svg', 'advanceccipralogo.svg', 'home.png']) {
   await copyFile(file, `public/${file}`);
 }
+const leadsPath = 'public/leads.js';
+const leadsSource = await readFile(leadsPath, 'utf8');
+const marker = '__CCIPRA_RECAPTCHA_ENTERPRISE_SITE_KEY__';
+if (!leadsSource.includes(marker)) throw new Error('Missing App Check site key placeholder in leads.js');
+await writeFile(leadsPath, leadsSource.replace(marker, recaptchaSiteKey));
 for (const directory of ['icons', 'fotos']) await cp(directory, `public/${directory}`, { recursive: true });
