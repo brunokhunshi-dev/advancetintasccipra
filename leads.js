@@ -31,7 +31,7 @@ function getAppCheck() {
             appId: '1:469987907955:web:414350be001aaaf6cccd06'
         });
         appCheck = initializeAppCheck(app, {
-            provider: new ReCaptchaEnterpriseProvider('6LcWafotAAAAAJUMnmqJvOy3BWCv0She-Dw27x1A'),
+            provider: new ReCaptchaEnterpriseProvider('__CCIPRA_RECAPTCHA_ENTERPRISE_SITE_KEY__'),
             isTokenAutoRefreshEnabled: true
         });
     }
